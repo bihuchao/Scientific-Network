@@ -15,7 +15,7 @@ def func_restart():
     os.system("ss{0} -d restart -c /etc/{0}.json".format(name))
 
 def func_usage():
-    print("Usage: /etc/init.d/ss{0} {start|stop|restart}".format(name))
+    print("Usage: /etc/init.d/ss{0} {{start|stop|restart}}".format(name))
 
 if __name__ == "__main__":
     if len(sys.argv)>1:
