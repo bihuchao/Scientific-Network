@@ -1,0 +1,30 @@
+#! /usr/bin/python
+
+import os
+import sys
+
+name = "local"
+
+def func_start():
+    os.system("ss{0} -d start -c /etc/{0}.json".format(name))
+
+def func_stop():
+    os.system("ss{0} -d stop -c /etc/{0}.json".format(name))
+
+def func_restart():
+    os.system("ss{0} -d restart -c /etc/{0}.json".format(name))
+
+def func_usage():
+    print("Usage: /etc/init.d/ss{0} {start|stop|restart}".format(name))
+
+if __name__ == "__main__":
+    if len(sys.argv)>1:
+        if sys.argv[1] == "start":
+            func_start()
+        elif sys.argv[1] == "stop":
+            func_stop()
+        elif sys.argv[1] == "restart":
+            func_restart()
+        exit(0)
+    func_usage()
+    exit(0)
